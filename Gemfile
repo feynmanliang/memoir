@@ -26,3 +26,5 @@ end
 
 gem 'jquery-rails'
 gem 'debugger'
+gem "twitter-bootstrap-rails"
+
