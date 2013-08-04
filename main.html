@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 101 Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <style type="text/css" media="all">
+            .center { margin:0 auto; }
+        </style>
+    </head>
+    <body>
+
+        <br /><br />
+        <!-- JavaScript plugins (requires jQuery) -->
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+
+
+        <div class="center" id="kenburns-slideshow"></div>
+        <div class="center" id="kenburns-description">
+            <h1 id="status">Loading Images..</h1>
+            <h1 id="slide-title"></h1>
+            <h1 class="title">My Feynman</h1>
+            <p>Feynman is my best friend, he goes to paradiso and wrestles</p>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="js/kenburns.js"></script>
+
+        <script type="text/javascript">
+            var titles = ["Epic Day at Paradiso",
+            "With my friends",
+            "First Flowers",
+            "Magic Hour at Amherst Gym",
+            "Coal Oil Point",
+            "Wrestling"];
+
+$(document).ready(function() {
+        $('#kenburns-slideshow').Kenburns({
+images: [
+"https://sphotos-a-iad.xx.fbcdn.net/hphotos-prn2/968772_10151586406101026_890504840_n.jpg",
+"https://sphotos-a-iad.xx.fbcdn.net/hphotos-ash3/418689_10151061229281026_1274063087_n.jpg",
+"https://sphotos-a-iad.xx.fbcdn.net/hphotos-frc1/197945_10150125054021026_472219_n.jpg",
+"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/60842_437750016025_689727_n.jpg",
+"https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/36219_403662256025_4429914_n.jpg",
+"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn1/19156_255125721025_7977485_n.jpg"
+],
+scale:0.75,
+duration:8000,
+fadeSpeed:1200,
+ease3d:'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
+
+onSlideComplete: function(){
+$('#slide-title').html(titles[this.getSlideIndex()]);
+},
+onLoadingComplete: function(){
+$('#status').html("Loading Complete");
+}
+
+});
+});
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap 101 Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="css/colorPicker.css" type="text/css" />
+        <style type="text/css" media="all">
+            .center { margin:0 auto; }
+        </style>
+    </head>
+    <body>
+
+        <br /><br />
+        <!-- JavaScript plugins (requires jQuery) -->
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.colorPicker.js"/></script>
+
+        <script type="text/javascript">
+          //Run the code when document ready
+          $(function() {    
+           $('.color').colorPicker({pickerDefault: "ffffff", colors: ["f6af1e", "fae6c8", "000000", "304959", "508084", "b8dbca", "332523", "b08358", "d6beaa", "8c3232", "e89292", "334a56", "aae2e2", "40484a", "a0b2b3", "ffffff", "e66a22", "f6ce1e", "566e35", "96a673", "272333", "5b4490", "bf93b0", "b7b2a8", "26a9e0"], transparency: true, showHexField: false}); 
+          });
+        </script>
+        <div class="center" style="width:500px">
+            <form>
+                <fieldset>
+                    <h1>Slide Show</h1>
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" placeholder="Enter Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter Description"></textarea>
+                        <!-- <input type="text" class="form-control" id="description" placeholder="Enter Description"> -->
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-lg-6">
+                            <label for="background_color">Background Color</label>
+                            <input type="text" class="color" id="background_color" value="508084">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="frame_color">Frame Color</label>
+                            <input type="text" class="color" id="frame_color" value="b8dbca">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default btn-large btn-block">Create Slide Show!</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </body>
+</html>
