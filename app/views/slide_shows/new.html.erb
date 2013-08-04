@@ -3,47 +3,71 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
 <style type="text/css" media="all">
     .center { margin:0 auto; }
+    a:hover {
+        color:0000
+}
 </style>
 
-<div class="center" style="width:500px">
-    <form>
-        <fieldset>
-            <h1>new slide show</h1>
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input style="height:40px" type="text" class="form-control" id="title" placeholder="Enter Title">
+<div class="center" style="width:600px">
+    <h1>new slide show</h1>
+    <div class="accordion" id="accordion">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">slide show info</a>
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" rows="3" placeholder="Enter Description"></textarea>
-            </div>
-            <div class="row form-group">
-                <div class="col-lg-6">
-                    <label for="background_color">Background Color</label>
-                    <input type="text" class="color" id="background_color" value="508084">
+            <div id="collapseOne" class="accordion-body in" style="height: auto; ">
+                <div class="accordion-inner">
+                    <form>
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input style="height:40px" type="text" class="form-control" id="title" placeholder="Enter Title">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter Description"></textarea>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-lg-6">
+                                    <label for="background_color">Background Color</label>
+                                    <input type="text" class="color" id="background_color" value="508084">
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="frame_color">Frame Color</label>
+                                    <input type="text" class="color" id="frame_color" value="b8dbca">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="col-lg-6">
-                    <label for="frame_color">Frame Color</label>
-                    <input type="text" class="color" id="frame_color" value="b8dbca">
+            </div>
+            <div class="accordion-group">
+                <div class="accordion-heading">
+                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">select photos</a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse" style="height: 0px; ">
+                    <div class="accordion-inner">
+                        <div style="height:auto;" class="row">
+                            <div id="jfmps-container"></div>
+                            <div id="fb-root"></div>
+                            <input id="jfmps-submit-button" type="submit" value="Use Selected Photos"/>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default btn-large btn-block">Create Slide Show!</button>
-            </div>
-        </fieldset>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default btn-large btn-block">Create Slide Show!</button>
+        </div>
     </form>
 </div>
 
 
 
-<div id="jfmps-container"></div>
-
-<input id="jfmps-submit-button" type="submit" value="Use Selected Photos"/>
-
-<div id="fb-root"></div>
 
 <script src="http://connect.facebook.net/en_US/all.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="../js/bootstrap.js"></script>
 <script src="../js/jquery.facebook.multiphoto.select.min.js"></script>
 <script src="../js/jquery.colorPicker.js"></script>
 <script>
