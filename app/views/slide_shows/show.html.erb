@@ -2,34 +2,19 @@
     .center { margin:0 auto; }
 </style>
 
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
 <p id="notice"><%= notice %></p>
-
+<br />
+<br />
 <p>
-  <b>Name:</b>
-  <%= @slide_show.name %>
-  <br>
-  <b>Description:</b>
-  <%= @slide_show.description %>
-  <br>
-  <b>Slides (<%= @slides.length %>):</b>
-  <br>
-  <% @slides.each do |slide| %>
-    <tr>
-      <td><%= slide.photo_url %></td>
-      <td><%= slide.message %></td>
-    </tr>
-  <% end %>
-  
 </p>
-<<<<<<< HEAD
-=======
 
         <div class="center" id="kenburns-slideshow"></div>
         <div class="center" id="kenburns-description">
             <h1 id="status">Loading Images..</h1>
             <h1 id="slide-title"></h1>
-            <h1 class="title">My Feynman</h1>
-            <p>Feynman is my best friend, he goes to paradiso and wrestles</p>
+            <h1 class="title"><%= @slide_show.name %></h1>
+            <p><%= @slide_show.description %></p>
         </div>
         <script type="text/javascript" src="../js/kenburns.js"></script>
 
@@ -43,14 +28,7 @@
 
 $(document).ready(function() {
         $('#kenburns-slideshow').Kenburns({
-images: [
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-prn2/968772_10151586406101026_890504840_n.jpg",
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-ash3/418689_10151061229281026_1274063087_n.jpg",
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-frc1/197945_10150125054021026_472219_n.jpg",
-"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/60842_437750016025_689727_n.jpg",
-"https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/36219_403662256025_4429914_n.jpg",
-"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn1/19156_255125721025_7977485_n.jpg"
-],
+          images: [<%=@slides.map { |s| '"'+ s.photo_url.to_s + '"' }.join(", ").html_safe %>],
 scale:0.75,
 duration:8000,
 fadeSpeed:1200,
@@ -66,7 +44,3 @@ $('#status').html("Loading Complete");
 });
 });
 </script>
-
-<%= link_to 'Edit', edit_slide_show_path(@slide_show) %> |
-<%= link_to 'Back', slide_shows_path %>
->>>>>>> c87acb0b930732edf830cfce969c2e0a157f1a68
