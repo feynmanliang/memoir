@@ -2,7 +2,43 @@
 
 <h1>Create a new slide show!</h1>
 
-<%= render 'form' %>
+
+<script type="text/javascript">
+    //Run the code when document ready
+$(function() {    
+        $('.color').colorPicker({pickerDefault: "ffffff", colors: ["f6af1e", "fae6c8", "000000", "304959", "508084", "b8dbca", "332523", "b08358", "d6beaa", "8c3232", "e89292", "334a56", "aae2e2", "40484a", "a0b2b3", "ffffff", "e66a22", "f6ce1e", "566e35", "96a673", "272333", "5b4490", "bf93b0", "b7b2a8", "26a9e0"], transparency: true, showHexField: false}); 
+        });
+</script>
+<div class="center" style="width:500px">
+    <form>
+        <fieldset>
+            <h1>Slide Show</h1>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter Title">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" rows="3" placeholder="Enter Description"></textarea>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label for="background_color">Background Color</label>
+                    <input type="text" class="color" id="background_color" value="508084">
+                </div>
+                <div class="col-lg-6">
+                    <label for="frame_color">Frame Color</label>
+                    <input type="text" class="color" id="frame_color" value="b8dbca">
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default btn-large btn-block">Create Slide Show!</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+
 
 <div id="jfmps-container"></div>
 
@@ -14,42 +50,42 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
 <script src="../js/jquery.facebook.multiphoto.select.min.js"></script>
 <script>
- (function($){
-	/** CHANGE THIS TO YOUR FACEBOOK APP ID **/
-	FB.init({appId: '147710968767742', cookie: true, oauth: true});
+    (function($){
+        /** CHANGE THIS TO YOUR FACEBOOK APP ID **/
+        FB.init({appId: '147710968767742', cookie: true, oauth: true});
 
-	FB.getLoginStatus(function(response) {
-		if (response.session) {
-			init();
-		} else {
-			login();
-		}
-	});
-	
-	function login() {
-		FB.login(function(response) {
-			if (response.authResponse) {
-				init();
-			} else {
-				alert('Login Failed!');
-			}
-		}, {scope:'user_photos'});
-	}
+        FB.getLoginStatus(function(response) {
+            if (response.session) {
+                init();
+                } else {
+                login();
+            }
+        });
 
-	function init() {
-		FB.api('/me', function(response) {
-			// ALL params are OPTIONAL.  Defaults are passed in to show available params.
-			$('#jfmps-container').jfmps({
-				noAlbumImagesText:  'You have no images in this album.',
-				noAlbumsText:  'You do not have any albums.',
-				submitCallback: function(jsonData){ alert(jsonData); },
-				imageSubmitButton: $('#jfmps-submit-button'),
-				maxPhotosSelected: 10,
-				numAlbumColumns: 4,
-				numPhotosColumns: 6,
-				debug: true
-			});
-		});
-	}
- })(jQuery);
+        function login() {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    init();
+                    } else {
+                    alert('Login Failed!');
+                }
+            }, {scope:'user_photos'});
+        }
+
+        function init() {
+            FB.api('/me', function(response) {
+                // ALL params are OPTIONAL.  Defaults are passed in to show available params.
+                $('#jfmps-container').jfmps({
+                    noAlbumImagesText:  'You have no images in this album.',
+                    noAlbumsText:  'You do not have any albums.',
+                    submitCallback: function(jsonData){ alert(jsonData); },
+                    imageSubmitButton: $('#jfmps-submit-button'),
+                    maxPhotosSelected: 10,
+                    numAlbumColumns: 4,
+                    numPhotosColumns: 6,
+                    debug: true
+                });
+            });
+        }
+    })(jQuery);
 </script>
