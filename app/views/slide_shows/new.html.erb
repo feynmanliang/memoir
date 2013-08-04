@@ -84,13 +84,14 @@
         });
 
         function login() {
-            FB.login(function(response) {
-                if (response.authResponse) {
-                    init();
-                    } else {
-                    alert('Login Failed!');
-                }
-            }, {scope:'user_photos'});
+            // FB.login(function(response) {
+            //     if (response.authResponse) {
+            //         init();
+            //         } else {
+            //         alert('Login Failed!');
+            //     }
+            // }, {scope:'user_photos'});
+           init();
         }
 
         function init() {
