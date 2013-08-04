@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <style type="text/css" media="all">
-.nav { display:hidden }
+.nav { background-color : <%= @slide_show.color2 %> }
 .center { margin:0 auto; }
 body { background-color : <%= @slide_show.color1 %> }
 #kenburns-slideshow {
@@ -66,6 +66,7 @@ body { background-color : <%= @slide_show.color1 %> }
       },
       onLoadingComplete: function(){
         $('#status').html("Loading Complete");
+        $('#status').hide();
       }
 
     });
