@@ -1,5 +1,5 @@
 class SlideShowsController < ApplicationController
-  before_filter :authenticate_user!,:only=>:create
+  before_filter :authenticate_user!,:only=> [:new, :create]
 
   # GET /slide_shows/1
   # GET /slide_shows/1.json
