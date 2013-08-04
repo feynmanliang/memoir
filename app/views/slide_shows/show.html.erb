@@ -44,12 +44,12 @@ body { background-color : <%= @slide_show.color1 %> }
 <script type="text/javascript" src="../js/kenburns.js"></script>
 
 <script type="text/javascript">
-var titles = ["Epic Day at Paradiso",
+/*var titles = ["Epic Day at Paradiso",
   "With my friends",
   "First Flowers",
   "Magic Hour at Amherst Gym",
   "Coal Oil Point",
-  "Wrestling"];
+  "Wrestling"];*/
 
   $(document).ready(function() {
     $('#kenburns-slideshow').Kenburns({
@@ -60,7 +60,7 @@ var titles = ["Epic Day at Paradiso",
       ease3d:'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
 
       onSlideComplete: function(){
-        $('#slide-title').html(titles[this.getSlideIndex()]);
+        //$('#slide-title').html(titles[this.getSlideIndex()]);
       },
       onLoadingComplete: function(){
         $('#status').html("Loading Complete");
