@@ -1,7 +1,5 @@
 Memoir::Application.routes.draw do
-  resources :slide_shows do
-    resources :slides
-  end
+  resources :slide_shows
 
 
   # The priority is based upon order of creation:

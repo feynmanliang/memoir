@@ -10,9 +10,6 @@
     <tr>
       <td><%= slide.photo_url %></td>
       <td><%= slide.message %></td>
-      <td><%= link_to "Show", slide_show_slide_path(@slide_show, slide) %></td>
-      <td><%= link_to "Edit", edit_slide_show_slide_path(@slide_show, slide) %></td>
-      <td><%= link_to "Remove", slide_show_slide_path(@slide_show, slide), method: :delete, data: { confirm: "Are you sure?" } %></td>
     </tr>
   <% end %>
   
