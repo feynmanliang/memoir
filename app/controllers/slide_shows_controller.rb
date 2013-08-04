@@ -27,15 +27,15 @@ class SlideShowsController < ApplicationController
   # POST /slide_shows
   # POST /slide_shows.json
   def create
-    @slide_show = SlideShow.new(params[:slide_show])
-    for slide_params in params[:slides]
-      @slide_show.slides << Slide.new(slide_params)
+    @slide_show = SlideShow.create(params[:slide_show])
+    params[:slides].each_value do |v|
+      @slide_show.slides.create(v)
     end
 
     respond_to do |format|
       if @slide_show.save
         format.html { redirect_to @slide_show, notice: 'Slide show was successfully created.' }
-        format.json { render json: @slide_show, status: :created, location: @slide_show }
+        format.json { render json: @slide_show.to_json(include: :slides), status: :created, location: @slide_show }
       else
         format.html { render action: "new" }
         format.json { render json: @slide_show.errors, status: :unprocessable_entity }

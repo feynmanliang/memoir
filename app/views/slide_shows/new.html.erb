@@ -26,16 +26,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" rows="3" placeholder="Enter Description"></textarea>
+                                <textarea id="description" class="form-control" rows="3" placeholder="Enter Description"></textarea>
                             </div>
                             <div class="row form-group">
                                 <div class="col-lg-6">
                                     <label for="background_color">Background Color</label>
-                                    <input type="text" class="color" id="background_color" value="508084">
+                                    <input type="text" class="color" id="color1" value="508084">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="frame_color">Frame Color</label>
-                                    <input type="text" class="color" id="frame_color" value="b8dbca">
+                                    <input type="text" class="color" id="color2" value="b8dbca">
                                 </div>
                             </div>
                         </fieldset>
@@ -53,14 +53,14 @@
                         <div style="height:auto;" class="row">
                             <div id="jfmps-container"></div>
                             <div id="fb-root"></div>
-                            <input id="jfmps-submit-button" type="submit" value="Use Selected Photos"/>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-default btn-large btn-block">Create Slide Show!</button>
+          <a id="submit-button" class="btn btn-default btn-large btn-block">Create Slide Show!</a>
+          <!--<button id="submit-button" class="btn btn-default btn-large btn-block">Create Slide Show!</button>-->
         </div>
     </form>
 </div>
@@ -103,8 +103,39 @@
                 $('#jfmps-container').jfmps({
                     noAlbumImagesText:  'You have no images in this album.',
                     noAlbumsText:  'You do not have any albums.',
-                    submitCallback: function(jsonData){ alert(jsonData); },
-                    imageSubmitButton: $('#jfmps-submit-button'),
+                    submitCallback: function(jsonData){ 
+                      var json = jQuery.parseJSON(jsonData);
+                      var slides = new Array();
+                      for (var k in json) {
+                        slides.push({"photo_url":json[k][0]["source"]});
+                      }
+                      var slideShowName = $("#title").val();
+                      var slideShowDescription = $("#description").val();
+                      var color1 = $("#color1").val();
+                      var color2 = $("#color2").val();
+                      var slideShow = {
+                        "name" : slideShowName,
+                        "description" : slideShowDescription,
+                        "color1" : color1,
+                        "color2" : color2
+                      };
+                      console.log(slideShow);
+                      console.log(slides);
+                      var data = {
+                        "slide_show" : slideShow,
+                        "slides" : slides
+                      };
+                      $.ajax({
+                        type: 'POST',
+                        url: '../../slide_shows.json',
+                        data: data,
+                        success: function(data,textStatus,jqXHR) {
+                          window.location.replace("../slide_shows/" + data["id"]);
+                        },
+                        async:false
+                      });
+                    },
+                    imageSubmitButton: $('#submit-button'),
                     maxPhotosSelected: 10,
                     numAlbumColumns: 4,
                     numPhotosColumns: 4,
