@@ -18,7 +18,9 @@ class SlideShowsControllerTest < ActionController::TestCase
 
   test "should create slide_show" do
     assert_difference('SlideShow.count') do
-      post :create, slide_show: { name: @slide_show.name }
+      post :create, slide_show: { name: @slide_show.name }, slides: [
+        { photo_url: "test1.jpg", message: "First image" }, 
+        { photo_url: "test2.jpg", message: "Second image" }]
     end
 
     assert_redirected_to slide_show_path(assigns(:slide_show))

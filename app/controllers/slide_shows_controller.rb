@@ -17,7 +17,7 @@ class SlideShowsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @slide_show }
+      format.json { render json: @slide_show.to_json(include: :slides) }
     end
   end
 
@@ -41,6 +41,9 @@ class SlideShowsController < ApplicationController
   # POST /slide_shows.json
   def create
     @slide_show = SlideShow.new(params[:slide_show])
+    for slide_params in params[:slides]
+      @slide_show.slides << Slide.new(slide_params)
+    end
 
     respond_to do |format|
       if @slide_show.save
