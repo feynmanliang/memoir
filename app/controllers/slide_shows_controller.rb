@@ -1,4 +1,6 @@
 class SlideShowsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /slide_shows/1
   # GET /slide_shows/1.json
   def show
