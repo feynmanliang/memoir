@@ -26,6 +26,15 @@ body { background-color : <%= @slide_show.color1 %> }
   <h1 id="slide-title"></h1>
   <h1 class="logo_font title" style="font-size:70px"><%= @slide_show.name %></h1>
   <p><%= @slide_show.description %></p>
+  <a href="#" 
+  onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+      'facebook-share-dialog', 
+      'width=626,height=436'); 
+    return false;">
+  Share on Facebook
+</a>
 </div>
 <br />
 <br />
