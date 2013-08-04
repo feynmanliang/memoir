@@ -21,8 +21,8 @@
   <% end %>
   
 </p>
-<<<<<<< HEAD
-=======
+<p>
+</p>
 
         <div class="center" id="kenburns-slideshow"></div>
         <div class="center" id="kenburns-description">
@@ -43,14 +43,7 @@
 
 $(document).ready(function() {
         $('#kenburns-slideshow').Kenburns({
-images: [
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-prn2/968772_10151586406101026_890504840_n.jpg",
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-ash3/418689_10151061229281026_1274063087_n.jpg",
-"https://sphotos-a-iad.xx.fbcdn.net/hphotos-frc1/197945_10150125054021026_472219_n.jpg",
-"https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-prn1/60842_437750016025_689727_n.jpg",
-"https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/36219_403662256025_4429914_n.jpg",
-"https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-prn1/19156_255125721025_7977485_n.jpg"
-],
+          images: [<%=@slides.map { |s| '"'+ s.photo_url.to_s + '"' }.join(", ").html_safe %>],
 scale:0.75,
 duration:8000,
 fadeSpeed:1200,
@@ -66,7 +59,3 @@ $('#status').html("Loading Complete");
 });
 });
 </script>
-
-<%= link_to 'Edit', edit_slide_show_path(@slide_show) %> |
-<%= link_to 'Back', slide_shows_path %>
->>>>>>> c87acb0b930732edf830cfce969c2e0a157f1a68
