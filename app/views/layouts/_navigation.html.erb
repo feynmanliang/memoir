@@ -2,9 +2,12 @@
   <%= link_to "Memoir", root_path, :class => 'navbar-brand' %>
   <ul class="nav navbar-nav">
   <% if user_signed_in? %>
+    <li>
     <button type="button" class="btn btn-default navbar-btn">
       <%= link_to 'Logout', signout_path %>
     </button>
+    </li>
+    <li class="navbar-text">Signed in as <%= current_user.name %></>
   <% else %>
     <button type="button" class="btn btn-default navbar-btn">
       <%= link_to 'Login', signin_path %>
