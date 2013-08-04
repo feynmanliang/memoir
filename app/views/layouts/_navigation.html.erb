@@ -1,18 +1,14 @@
-<%= link_to "Memoir", root_path, :class => 'brand' %>
-<ul class="nav">
+<div class="navbar">
+  <%= link_to "Memoir", root_path, :class => 'navbar-brand' %>
+  <ul class="nav navbar-nav">
   <% if user_signed_in? %>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        <%= current_user.name %>
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-        <li><%= link_to 'Logout', signout_path %></li>
-      </ul>
-    </li>
+    <button type="button" class="btn btn-default navbar-btn">
+      <%= link_to 'Logout', signout_path %>
+    </button>
   <% else %>
-    <li>
+    <button type="button" class="btn btn-default navbar-btn">
       <%= link_to 'Login', signin_path %>
-    </li>
+    </button>
   <% end %>
-</ul>
+  </ul>
+</div>
