@@ -24,7 +24,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'thin-rails'
 gem 'jquery-rails'
 gem 'debugger'
 gem "twitter-bootstrap-rails"
-
+gem "omniauth", ">= 1.1.1"
+gem "omniauth-facebook"
