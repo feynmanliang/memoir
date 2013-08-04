@@ -1,4 +1,4 @@
 class SlideShow < ActiveRecord::Base
   attr_accessible :name, :description, :color1, :color2
-  has_many :slides
+  has_many :slides, autosave: true
 end

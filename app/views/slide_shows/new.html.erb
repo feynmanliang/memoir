@@ -55,7 +55,7 @@
             </div>
         </div>
         <div class="form-group">
-          <a id="submit-button">TTestTestTestTestTestTestTestest</a>
+          <a id="submit-button" class="btn btn-default btn-large btn-block">Create Slide Show!</a>
           <!--<button id="submit-button" class="btn btn-default btn-large btn-block">Create Slide Show!</button>-->
         </div>
     </form>
@@ -101,7 +101,7 @@
                     noAlbumsText:  'You do not have any albums.',
                     submitCallback: function(jsonData){ 
                       var json = jQuery.parseJSON(jsonData);
-                      var slides = [];
+                      var slides = new Array();
                       for (var k in json) {
                         slides.push({"photo_url":json[k][0]["source"]});
                       }
@@ -126,9 +126,7 @@
                         url: '../../slide_shows.json',
                         data: data,
                         success: function(data,textStatus,jqXHR) {
-                          console.log(data);
-                          console.log(textStatus);
-                          console.log(jqXHR);
+                          window.location.replace("../slide_shows/" + data["id"]);
                         },
                         async:false
                       });
