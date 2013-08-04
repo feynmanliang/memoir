@@ -1,50 +1,61 @@
+<link rel="stylesheet" type="text/css" href="../css/style.css">
 <style type="text/css" media="all">
-    .center { margin:0 auto; }
+.center { margin:0 auto; }
+body { background-color : <%= @slide_show.color1 %> }
+#kenburns-slideshow {
+  background-color : <%= @slide_show.color2 %>;
+  border-top-color : <%= @slide_show.color2 %>;
+  border-bottom-color : <%= @slide_show.color2 %>;
+  border-left-color : <%= @slide_show.color2 %>;
+  border-right-color : <%= @slide_show.color2 %>;
+}
+#kenburns-description {
+  background-color : <%= @slide_show.color2 %>
+}
 </style>
 
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
 <p id="notice"><%= notice %></p>
 <br />
 <br />
 <p>
 </p>
 
-        <div class="center" id="kenburns-slideshow"></div>
-        <div class="center" id="kenburns-description">
-            <h1 id="status">Loading Images..</h1>
-            <h1 id="slide-title"></h1>
-            <h1 class="logo_font title" style="font-size:70px"><%= @slide_show.name %></h1>
-            <p><%= @slide_show.description %></p>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <script type="text/javascript" src="../js/kenburns.js"></script>
+<div class="center" id="kenburns-slideshow"></div>
+<div class="center" id="kenburns-description">
+  <h1 id="status">Loading Images..</h1>
+  <h1 id="slide-title"></h1>
+  <h1 class="logo_font title" style="font-size:70px"><%= @slide_show.name %></h1>
+  <p><%= @slide_show.description %></p>
+</div>
+<br />
+<br />
+<br />
+<br />
+<script type="text/javascript" src="../js/kenburns.js"></script>
 
-        <script type="text/javascript">
-            var titles = ["Epic Day at Paradiso",
-            "With my friends",
-            "First Flowers",
-            "Magic Hour at Amherst Gym",
-            "Coal Oil Point",
-            "Wrestling"];
+<script type="text/javascript">
+var titles = ["Epic Day at Paradiso",
+  "With my friends",
+  "First Flowers",
+  "Magic Hour at Amherst Gym",
+  "Coal Oil Point",
+  "Wrestling"];
 
-$(document).ready(function() {
-        $('#kenburns-slideshow').Kenburns({
-          images: [<%=@slides.map { |s| '"'+ s.photo_url.to_s + '"' }.join(", ").html_safe %>],
-scale:0.95,
-duration:8000,
-fadeSpeed:1200,
-ease3d:'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
+  $(document).ready(function() {
+    $('#kenburns-slideshow').Kenburns({
+      images: [<%=@slides.map { |s| '"'+ s.photo_url.to_s + '"' }.join(", ").html_safe %>],
+      scale:0.95,
+      duration:8000,
+      fadeSpeed:1200,
+      ease3d:'cubic-bezier(0.445, 0.050, 0.550, 0.950)',
 
-onSlideComplete: function(){
-$('#slide-title').html(titles[this.getSlideIndex()]);
-},
-onLoadingComplete: function(){
-$('#status').html("Loading Complete");
-}
+      onSlideComplete: function(){
+        $('#slide-title').html(titles[this.getSlideIndex()]);
+      },
+      onLoadingComplete: function(){
+        $('#status').html("Loading Complete");
+      }
 
-});
-});
+    });
+  });
 </script>
