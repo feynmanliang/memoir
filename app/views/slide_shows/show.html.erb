@@ -4,24 +4,8 @@
 
         <link rel="stylesheet" type="text/css" href="../css/style.css">
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @slide_show.name %>
-  <br>
-  <b>Description:</b>
-  <%= @slide_show.description %>
-  <br>
-  <b>Slides (<%= @slides.length %>):</b>
-  <br>
-  <% @slides.each do |slide| %>
-    <tr>
-      <td><%= slide.photo_url %></td>
-      <td><%= slide.message %></td>
-    </tr>
-  <% end %>
-  
-</p>
+<br />
+<br />
 <p>
 </p>
 
@@ -29,8 +13,8 @@
         <div class="center" id="kenburns-description">
             <h1 id="status">Loading Images..</h1>
             <h1 id="slide-title"></h1>
-            <h1 class="title">My Feynman</h1>
-            <p>Feynman is my best friend, he goes to paradiso and wrestles</p>
+            <h1 class="title"><%= @slide_show.name %></h1>
+            <p><%= @slide_show.description %></p>
         </div>
         <script type="text/javascript" src="../js/kenburns.js"></script>
 
